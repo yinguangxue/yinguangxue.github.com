@@ -5,22 +5,16 @@
   
   <title>Two Eggs And One Hundred Floors | 呆呆和朵朵</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。
-然后，一般人就开始做题，然后背答案，好一点的会举一反三，差一点的就记住了。我发现我可能是更差的那一种，连背都懒得背。
-哎，不多说了。就这道题来讲，直观的想法，就是load balancing。啥意思，两个蛋嘛，显然第一个蛋就是为了给第二个蛋圈一个小范围的。然后小范围内linear search。那么问题就">
+  <meta name="description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Two Eggs And One Hundred Floors">
 <meta property="og:url" content="http://yoursite.com/2015/08/28/Two-Eggs-And-One-Hundred-Floors/index.html">
 <meta property="og:site_name" content="呆呆和朵朵">
-<meta property="og:description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。
-然后，一般人就开始做题，然后背答案，好一点的会举一反三，差一点的就记住了。我发现我可能是更差的那一种，连背都懒得背。
-哎，不多说了。就这道题来讲，直观的想法，就是load balancing。啥意思，两个蛋嘛，显然第一个蛋就是为了给第二个蛋圈一个小范围的。然后小范围内linear search。那么问题就">
-<meta property="og:updated_time" content="2015-08-28T14:52:28.412Z">
+<meta property="og:description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。">
+<meta property="og:updated_time" content="2015-08-28T15:21:04.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Two Eggs And One Hundred Floors">
-<meta name="twitter:description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。
-然后，一般人就开始做题，然后背答案，好一点的会举一反三，差一点的就记住了。我发现我可能是更差的那一种，连背都懒得背。
-哎，不多说了。就这道题来讲，直观的想法，就是load balancing。啥意思，两个蛋嘛，显然第一个蛋就是为了给第二个蛋圈一个小范围的。然后小范围内linear search。那么问题就">
+<meta name="twitter:description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。">
   
     <link rel="alternative" href="/atom.xml" title="呆呆和朵朵" type="application/atom+xml">
   
@@ -92,8 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。</p>
-<p>然后，一般人就开始做题，然后背答案，好一点的会举一反三，差一点的就记住了。我发现我可能是更差的那一种，连背都懒得背。</p>
+        <p>看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。<br><a id="more"></a><br>然后，一般人就开始做题，然后背答案，好一点的会举一反三，差一点的就记住了。我发现我可能是更差的那一种，连背都懒得背。</p>
 <p>哎，不多说了。就这道题来讲，直观的想法，就是load balancing。啥意思，两个蛋嘛，显然第一个蛋就是为了给第二个蛋圈一个小范围的。然后小范围内linear search。那么问题就是第一个蛋要在哪些楼层上摔。这个就不再细讲了，基本上就是个间隔递减的递增序列。答案是14次。</p>
 <p>我想说的是，要是这道题让编程实现，比如m层，n个蛋，需要多少次实验？</p>
 <p>首先边界条件应该先考虑：<br>dp[i][1] = i<br>dp[0][j] = 0<br>其次是转移方程：<br>dp[i][j] = min(k:[1~i]){max(dp[k][j-1],dp[i-k][j])+1}<br>这个转移方程其实很暴力了，就是枚举第一次摔鸡蛋的楼层，然后按照碎不碎，取两种情况的最大值</p>
@@ -102,7 +95,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/28/Two-Eggs-And-One-Hundred-Floors/" data-id="cidvrdl6d000bc4g2cngbncql" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/28/Two-Eggs-And-One-Hundred-Floors/" data-id="cidvtw0d1000disg28y4n07ol" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li></ul>
@@ -112,6 +105,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/08/29/tutorial-of-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          tutorial of hexo
+        
+      </div>
+    </a>
   
   
     <a href="/2015/08/20/去除C-中的注释问题/" id="article-nav-older" class="article-nav-link-wrap">
@@ -132,7 +134,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -171,6 +173,10 @@
       <ul>
         
           <li>
+            <a href="/2015/08/29/tutorial-of-hexo/">tutorial of hexo</a>
+          </li>
+        
+          <li>
             <a href="/2015/08/28/Two-Eggs-And-One-Hundred-Floors/">Two Eggs And One Hundred Floors</a>
           </li>
         
@@ -180,10 +186,6 @@
         
           <li>
             <a href="/2015/08/18/My-New-Post/">千里之行，始于足下</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/17/hello-world/">Hello World</a>
           </li>
         
       </ul>
