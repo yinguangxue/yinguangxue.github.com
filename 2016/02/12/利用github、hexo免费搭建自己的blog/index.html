@@ -4,10 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>My New Post | 倔强又可爱的呆呆</title>
+    <title>利用github、hexo免费搭建自己的blog | 倔强又可爱的呆呆</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="yinguangxue">
+    
+    <meta name="description" content="预备技能
+markdown
+github
+hexo
+
+markdown语法虽然之前我稍微看过markdown的语法，也知道只是一种更易于写blog的标记语言而已。但是要是真的让我完全开始写blog，难免有些效果不知道怎么标记。索性就通过不断写blog来强化吧。具体的教程可以参考Wow!Ubuntu
+">
     
     
     
@@ -69,15 +77,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/10/My-New-Post-1/" title="My New Post" itemprop="url">My New Post</a>
+      <a href="/2016/02/12/利用github、hexo免费搭建自己的blog/" title="利用github、hexo免费搭建自己的blog" itemprop="url">利用github、hexo免费搭建自己的blog</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yinguangxue.github.io" title="yinguangxue">yinguangxue</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-02-10T09:43:24.000Z" itemprop="datePublished">2016-02-10</time>
-    更新日期:<time datetime="2016-02-10T09:43:24.231Z" itemprop="dateModified">2016-02-10</time>
+    <time datetime="2016-02-12T09:30:36.000Z" itemprop="datePublished">2016-02-12</time>
+    更新日期:<time datetime="2016-02-12T11:34:58.983Z" itemprop="dateModified">2016-02-12</time>
     
   </p>
 </header>
@@ -86,19 +94,67 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u9884_u5907_u6280_u80FD"><span class="toc-number">1.</span> <span class="toc-text">预备技能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown_u8BED_u6CD5"><span class="toc-number">1.1.</span> <span class="toc-text">markdown语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github"><span class="toc-number">1.2.</span> <span class="toc-text">github</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4E0B_u8F7D_u5E76_u5B89_u88C5msysGit"><span class="toc-number">1.2.1.</span> <span class="toc-text">下载并安装msysGit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u914D_u7F6EGit"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置Git</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo"><span class="toc-number">1.3.</span> <span class="toc-text">hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B89_u88C5node-js"><span class="toc-number">1.3.1.</span> <span class="toc-text">安装node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B89_u88C5Hexo"><span class="toc-number">1.3.2.</span> <span class="toc-text">安装Hexo</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		  
+		<h2 id="u9884_u5907_u6280_u80FD"><a href="#u9884_u5907_u6280_u80FD" class="headerlink" title="预备技能"></a>预备技能</h2><ul>
+<li>markdown</li>
+<li>github</li>
+<li>hexo</li>
+</ul>
+<h3 id="markdown_u8BED_u6CD5"><a href="#markdown_u8BED_u6CD5" class="headerlink" title="markdown语法"></a>markdown语法</h3><p>虽然之前我稍微看过markdown的语法，也知道只是一种更易于写blog的标记语言而已。但是要是真的让我完全开始写blog，难免有些效果不知道怎么标记。索性就通过不断写blog来强化吧。具体的教程可以参考<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Wow!Ubuntu</a></p>
+<h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><p>首先你先申请一个github账号，然后建立一个仓库，名字要和用户名一致。这个仓库就是你博客编译之后要存放的位置。假设每次编译好博客都要自己push的话，实在是太麻烦了，所以你需要先安装一个git的客户端，这个客户端能够自动的和你的github仓库建立连接。我推荐使用msysGit，Cygwin的话要安装的东西太多，在windows下还是算了。</p>
+<h4 id="u4E0B_u8F7D_u5E76_u5B89_u88C5msysGit"><a href="#u4E0B_u8F7D_u5E76_u5B89_u88C5msysGit" class="headerlink" title="下载并安装msysGit"></a>下载并安装<a href="https://git-for-windows.github.io/" target="_blank" rel="external">msysGit</a></h4><h4 id="u914D_u7F6EGit"><a href="#u914D_u7F6EGit" class="headerlink" title="配置Git"></a>配置Git</h4><p>1.配置你的用户名和电子邮箱</p>
+<pre><code>$ git config --global user.name &quot;yourname&quot;
+$ git config --global user.email youremail@example.com
+</code></pre><p>2.配置GitHub SSH<br>首先需要生成SSH密钥</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;
+</code></pre><p>然后将.ssh文件夹里的pub文件中的内容复制到github中。<br>更多Git的相关学习请参考<a href="http://www.worldhello.net/gotgit/index.html" target="_blank" rel="external">这里</a></p>
+<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><h4 id="u5B89_u88C5node-js"><a href="#u5B89_u88C5node-js" class="headerlink" title="安装node.js"></a>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></h4><h4 id="u5B89_u88C5Hexo"><a href="#u5B89_u88C5Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>利用刚刚安装的msysgit，在目录右键，选择git bash，执行命令</p>
+<pre><code>$ npm install -g hexo
+</code></pre><p>然后新建自己blog的文件夹，比如 D:\hexo,在这个文件夹下，打开git bash，键入</p>
+<pre><code>$ hexo init
+</code></pre><p>之后会提醒你，don’t forget to run ·npm install· 所以下个命令</p>
+<pre><code>$ npm install
+</code></pre><p>现在你有个空的blog，当然还有许多配置需要更改，但是现在你已经有个blog了，可以在本地先预览一下，启动命令</p>
+<pre><code>$ hexo server
+</code></pre><p>当然，默认的端口是4000，我这个端口被占用了，所以总是不能显示，好在你可以指定端口</p>
+<pre><code>$ hexo server -p 2222
+</code></pre><p>然后打开浏览器输入 localhost:2222就可以了。<br>然后怎么讲编译好的blog放到github上呢？你需要到刚刚新建的文件夹里（D:\hexo）中的_config.yml文件，找到这一行</p>
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+  deploy:
+  type:
+</code></pre><p>并修改为：</p>
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:yinguangxue/yinguangxue.github.com.git
+  branch: master
+</code></pre><p>然后输入</p>
+<pre><code>hexo deploy
+</code></pre><p>过几秒钟，刷新github个人blog地址就可以看到自己的blog，当然是个崭新的待配置的，但是你已经有blog了不是吗：）</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/blog/">blog</a><a href="/tags/github/">github</a><a href="/tags/hexo/">hexo</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/网络技能/">网络技能</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yinguangxue.github.io/2016/02/10/My-New-Post-1/" data-title="My New Post | 倔强又可爱的呆呆" data-tsina="null" class="share clearfix">
+  <div data-url="http://yinguangxue.github.io/2016/02/12/利用github、hexo免费搭建自己的blog/" data-title="利用github、hexo免费搭建自己的blog | 倔强又可爱的呆呆" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -107,14 +163,6 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/10/hello-world/" title="Hello World">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Hello World</span>
-</a>
-</div>
-
 
 <div class="next">
 <a href="/2015/08/29/tutorial-of-hexo/"  title="tutorial of hexo">
@@ -129,7 +177,7 @@
 	
 <section class="comment">
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="2016/02/10/My-New-Post-1/" data-title="My New Post" data-url="http://yinguangxue.github.io/2016/02/10/My-New-Post-1/">
+<div class="ds-thread" data-thread-key="2016/02/12/利用github、hexo免费搭建自己的blog/" data-title="利用github、hexo免费搭建自己的blog" data-url="http://yinguangxue.github.io/2016/02/12/利用github、hexo免费搭建自己的blog/">
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -151,7 +199,7 @@ var duoshuoQuery = {short_name:"daidai7github"};
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u9884_u5907_u6280_u80FD"><span class="toc-number">1.</span> <span class="toc-text">预备技能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown_u8BED_u6CD5"><span class="toc-number">1.1.</span> <span class="toc-text">markdown语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github"><span class="toc-number">1.2.</span> <span class="toc-text">github</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4E0B_u8F7D_u5E76_u5B89_u88C5msysGit"><span class="toc-number">1.2.1.</span> <span class="toc-text">下载并安装msysGit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u914D_u7F6EGit"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置Git</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo"><span class="toc-number">1.3.</span> <span class="toc-text">hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B89_u88C5node-js"><span class="toc-number">1.3.1.</span> <span class="toc-text">安装node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B89_u88C5Hexo"><span class="toc-number">1.3.2.</span> <span class="toc-text">安装Hexo</span></a></li></ol></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -165,7 +213,7 @@ var duoshuoQuery = {short_name:"daidai7github"};
 		
 			<li><a href="/categories/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 		
-			<li><a href="/categories/生活/" title="生活">生活<sup>1</sup></a></li>
+			<li><a href="/categories/网络技能/" title="网络技能">网络技能<sup>1</sup></a></li>
 		
 			<li><a href="/categories/面试/" title="面试">面试<sup>2</sup></a></li>
 		
@@ -180,7 +228,11 @@ var duoshuoQuery = {short_name:"daidai7github"};
 		
 			<li><a href="/tags/DP/" title="DP">DP<sup>1</sup></a></li>
 		
-			<li><a href="/tags/哲思/" title="哲思">哲思<sup>1</sup></a></li>
+			<li><a href="/tags/blog/" title="blog">blog<sup>1</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 		
 			<li><a href="/tags/字符串/" title="字符串">字符串<sup>1</sup></a></li>
 		
