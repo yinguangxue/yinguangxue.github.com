@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Two Eggs And One Hundred Floors | 倔强又可爱的呆呆</title>
+    <title>概率角度看最小二乘与最大似然 | 倔强又可爱的呆呆</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="yinguangxue">
     
-    <meta name="description" content="看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。">
+    <meta name="description" content="Least Square 的解析是根据Gaussian分布与最大似然估计求得的。
+假设线性回归模型具有如下形式：$$f(x)=\sum_{j=1}^d x_j w_j + \epsilon = \mathbf{xw^T} + \epsilon $$其中\(\mathbf{x} \in \mathbb">
     
     
     
@@ -71,15 +72,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/28/Two-Eggs-And-One-Hundred-Floors/" title="Two Eggs And One Hundred Floors" itemprop="url">Two Eggs And One Hundred Floors</a>
+      <a href="/2016/05/15/概率角度看最小二乘与最大似然/" title="概率角度看最小二乘与最大似然" itemprop="url">概率角度看最小二乘与最大似然</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yinguangxue.github.io" title="yinguangxue">yinguangxue</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-08-28T14:31:45.000Z" itemprop="datePublished">2015-08-28</time>
-    更新日期:<time datetime="2015-08-28T15:21:06.000Z" itemprop="dateModified">2015-08-28</time>
+    <time datetime="2016-05-15T15:17:37.000Z" itemprop="datePublished">2016-05-15</time>
+    更新日期:<time datetime="2016-05-15T15:17:37.217Z" itemprop="dateModified">2016-05-15</time>
     
   </p>
 </header>
@@ -91,31 +92,19 @@
 		
 		</div>
 		
-		<p>看到这题，首先有种蛋蛋的忧伤，不得不佩服总是有那么一批智力超群的人想得出这些五花八门的题目。<br><a id="more"></a><br>然后，一般人就开始做题，然后背答案，好一点的会举一反三，差一点的就记住了。我发现我可能是更差的那一种，连背都懒得背。</p>
-<p>哎，不多说了。就这道题来讲，直观的想法，就是load balancing。啥意思，两个蛋嘛，显然第一个蛋就是为了给第二个蛋圈一个小范围的。然后小范围内linear search。那么问题就是第一个蛋要在哪些楼层上摔。这个就不再细讲了，基本上就是个间隔递减的递增序列。答案是14次。</p>
-<p>我想说的是，要是这道题让编程实现，比如m层，n个蛋，需要多少次实验？</p>
-<p>首先边界条件应该先考虑：<br>dp[i][1] = i<br>dp[0][j] = 0<br>其次是转移方程：<br>dp[i][j] = min(k:[1~i]){max(dp[k][j-1],dp[i-k][j])+1}<br>这个转移方程其实很暴力了，就是枚举第一次摔鸡蛋的楼层，然后按照碎不碎，取两种情况的最大值</p>
-<p>所以，就有了以下的代码喽<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min_testnumber</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> e)</span>    </span><br><span class="line"></span>&#123;    </span><br><span class="line">        <span class="keyword">int</span> **f=<span class="keyword">new</span> <span class="keyword">int</span> *[d+<span class="number">1</span>];    </span><br><span class="line">        <span class="keyword">int</span> i,j,k;    </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=d;i++)    </span><br><span class="line">            f[i]=<span class="keyword">new</span> <span class="keyword">int</span>[e+<span class="number">1</span>];    </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=d;i++)    </span><br><span class="line">            f[i][<span class="number">1</span>]=i;    </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=e;i++)    </span><br><span class="line">            f[<span class="number">0</span>][i]=<span class="number">0</span>;    </span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=d;j++)    </span><br><span class="line">        &#123;    </span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=e;i++)    </span><br><span class="line">            &#123;    </span><br><span class="line">                <span class="keyword">int</span> tmp;    </span><br><span class="line">                <span class="keyword">int</span> min_test=<span class="number">0x7FFFFFFF</span>;    </span><br><span class="line">                <span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=j;k++) <span class="comment">//第一个蛋放的层次   </span></span><br><span class="line">                &#123;    </span><br><span class="line">                    tmp = max(f[k-<span class="number">1</span>][i-<span class="number">1</span>],f[j-k][i])+<span class="number">1</span>;  </span><br><span class="line">                    <span class="keyword">if</span>(tmp&lt;min_test)    </span><br><span class="line">                        min_test=tmp;    </span><br><span class="line">                &#125;    </span><br><span class="line">                f[j][i]=min_test;    </span><br><span class="line">            &#125;    </span><br><span class="line">       &#125;    </span><br><span class="line">       <span class="keyword">int</span> result=f[d][e];  </span><br><span class="line">       <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=d;i++)  </span><br><span class="line">           <span class="keyword">delete</span>[]f[i];  </span><br><span class="line">       <span class="keyword">delete</span>[]f;  </span><br><span class="line">       <span class="keyword">return</span> result;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;min_testnumber(<span class="number">100</span>,<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+		<p>Least Square 的解析是根据Gaussian分布与最大似然估计求得的。</p>
+<p>假设线性回归模型具有如下形式：<br>$$f(x)=\sum_{j=1}^d x_j w_j + \epsilon = \mathbf{xw^T} + \epsilon $$<br>其中\(\mathbf{x} \in \mathbb{R}^{1\times d }, \mathbf{w} \in \mathbb{R}^{1\times d}\), 误差 \(\epsilon \in \mathbb{R}\)<br>已知\(\mathbf{X}=(\mathbf{x_1} \cdots \mathbf{x_n})^T \in \mathbb{R}^{n \times d}, \mathbf{y} \in \mathbb{R}^{n \times 1} \) 怎么求 \(\mathbf{w}\)呢？</p>
+<p>假设\(\epsilon_i \sim \mathscr{N}(0, \sigma^2),\),也就是说\(y_i \sim \mathscr(x_i w^T, \sigma^2)\), 那么用最大似然估计推导：<br>\(\text{arg}  \text{ max}_w L(w) = \text{In}\displaystyle\prod_{i=1}^{n}\frac{1}{\sigma\sqrt{2\pi}}\text{exp}(-\frac{1}{2} (\frac{y_i - x_i w^T}{\sigma})^2)=-\frac{1}{2\sigma^2}\sum_{i=1}^n(y_i - x_i w^T)^2 - n \text{ln}\sigma\sqrt{2\pi}\)<br>\(\text{arg min}_w f(w) = \sum_{i=1}^{n}(y_i - x_i w^T)^2=||y - Xw^T||_2^2\)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/DP/">DP</a>
-  </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/面试/">面试</a>
-</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yinguangxue.github.io/2015/08/28/Two-Eggs-And-One-Hundred-Floors/" data-title="Two Eggs And One Hundred Floors | 倔强又可爱的呆呆" data-tsina="null" class="share clearfix">
+  <div data-url="http://yinguangxue.github.io/2016/05/15/概率角度看最小二乘与最大似然/" data-title="概率角度看最小二乘与最大似然 | 倔强又可爱的呆呆" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -124,19 +113,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/29/tutorial-of-hexo/" title="tutorial of hexo">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  tutorial of hexo</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/20/去除C-中的注释问题/"  title="去除C++中的注释问题">
+<a href="/2016/03/05/vim命令汇总/"  title="vim命令汇总">
  <strong>NEXT:</strong><br/> 
- <span>去除C++中的注释问题
+ <span>vim命令汇总
 </span>
 </a>
 </div>
@@ -146,7 +127,7 @@
 	
 <section class="comment">
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="2015/08/28/Two-Eggs-And-One-Hundred-Floors/" data-title="Two Eggs And One Hundred Floors" data-url="http://yinguangxue.github.io/2015/08/28/Two-Eggs-And-One-Hundred-Floors/">
+<div class="ds-thread" data-thread-key="2016/05/15/概率角度看最小二乘与最大似然/" data-title="概率角度看最小二乘与最大似然" data-url="http://yinguangxue.github.io/2016/05/15/概率角度看最小二乘与最大似然/">
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
